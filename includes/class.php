@@ -20,7 +20,7 @@ class address extends db
 	}
 	public function load()
 	{
-		$query = "SELECT * FROM address ";
+		$query = "SELECT * FROM address";
 		$stmt = $this->connect()->prepare($query);
 		$stmt->execute();
 		$out = "";
@@ -42,7 +42,59 @@ class address extends db
 			$out .= "<p class='alert alert-info text-center col-sm-5 mx-auto'>No records yet. its time to add new!</p>";
 		}
 		return $out;
+	}
+
+
+	public function getStates($country_id = 1)
+	{
+		$query = "SELECT * FROM states WHERE country_id = $country_id";
+		$stmt = $this->connect()->prepare($query);
+		$stmt->execute();
+
+		$out = "";
+		$out .= "<option value=''>Select State</option>";
+
+		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row['id'];
+			$name = $row['name'];
+
+			$out .= "<option value=".$id.">$name</option>";
+		}
+
+		if ($stmt->rowCount() == 0) {
+			$out = "";
+		}
 		return $out;
+	}
+
+	public function getCitiesByState($state_id)
+	{	
+
+		try{
+
+			$query = "SELECT * FROM cities WHERE state_id = $state_id";
+			$stmt = $this->connect()->prepare($query);
+			$stmt->execute();
+	
+			$out = "";
+			$out .= "<option value=''>Select cities</option>";
+			
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$id = $row['id'];
+				$name = $row['name'];
+	
+				$out .= "<option value=".$id.">$name</option>";
+			}
+	
+			if ($stmt->rowCount() == 0) {
+				$out = "";
+			}
+
+			return $out;
+
+		}catch(\Exception $e){
+			return $e->getMessage();
+		}
 	}
 
 	// // update data

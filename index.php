@@ -32,14 +32,11 @@ ini_set('display_errors', 1);
 					<input type="text" id="address_line2" name="address_line2" placeholder="Address Line 2" class='form-control' required>
 				</div>
 				<div class="form-group">
-					<select id="state" name="state_id" class="form-control">
-						<option></option>
+					<select id="state-dropdown" name="state_id" class="form-control">
 					</select>
-					<!-- <input type="text" id="state" name="state" placeholder="state" class='form-control' required> -->
 				</div>
 				<div class="form-group">
-					<select id="city" name="city_id" class="form-control">
-						<option></option>
+					<select id="city-dropdown" name="city_id" class="form-control">
 					</select>
 				</div>
 				<div class="form-group">
