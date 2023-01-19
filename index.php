@@ -12,38 +12,41 @@ ini_set('display_errors', 1);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>USPS Address Validation</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body style="font-family:roboto,sans-serif;">
-	<div class="container-fluid py-4" style="background:linear-gradient(to right, rgb(111, 207, 242), rgb(4, 147, 135));">
-		<h1 class='text-center'>USPS Address Validation</h1>
-	</div>
-	<br>
 	<div class="container col-md-4">
-		<div class="container bg-light py-3" id='regBox'>
-			<h2 class='text-center'>Address Form</h2><br>
+		<div class="container bg-white py-3" id='regBox'>
+			<h2 class="form-title">Address Form</h2>
+			<p class="sub-title">Validate/Standardizes addresses using USPS</p>
 			<div id='msgReg'></div>
 			<form action="" id='addressForm' method="post">
 				<div class="form-group">
+					<label for="exampleInputEmail1">Address Line 1</label>
 					<input type="text" id="address_line1" name="address_line1" placeholder="Address Line 1" class='form-control' required>
 					<span class="text-danger" id=error_add1></span>
 				</div>
 				<div class="form-group">
+				<label for="exampleInputEmail1">Address Line 2</label>
 					<input type="text" id="address_line2" name="address_line2" placeholder="Address Line 2" class='form-control' required>
 					<span class="text-danger" id=error_add2></span>
 				</div>
 				<div class="form-group">
+				<label for="exampleInputEmail1">City</label>
 					<select id="state-dropdown" name="state_id" class="form-control">
 					</select>
 					<span class="text-danger" id=error_state></span>
 				</div>
 				<div class="form-group">
+				<label for="exampleInputEmail1">State</label>
 					<select id="city-dropdown" name="city_id" class="form-control">
 					</select>
 					<span class="text-danger" id=error_city></span>
 				</div>
 				<div class="form-group">
+				<label for="exampleInputEmail1">Zipcode</label>
 					<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class='form-control' required>
 					<span class="text-danger" id=error_zip></span>
 				</div>
@@ -66,13 +69,13 @@ ini_set('display_errors', 1);
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title">Modal Heading</h4>
+					<h4 class="modal-title">Save Address</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<p>Which address format. Do you want to save?</p>
+					<p class="modal-subtitle">Which address format. Do you want to save?</p>
 
 					<div class="bs-example">
 						<ul class="nav nav-tabs">
@@ -112,7 +115,7 @@ ini_set('display_errors', 1);
 				<div class="alert alert-danger" id="err1" role="alert">
 				</div>
 				<div class="modal-footer">
-					<input type="button" id="submit-btn" value="Submit" class='btn btn-info'>
+					<input type="button" id="submit-btn" value="Submit" class='btn btn-primary'>
 				</div>
 
 			</div>
