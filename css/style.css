@@ -1,0 +1,68 @@
+.form-group label {
+    color: #898989;
+}
+h2.form-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #504E5B;
+    margin-bottom: 0;
+}
+p.sub-title {
+    color: #646464;
+    font-weight: 500;
+    border-bottom: 1px solid #d5d5d5;
+    padding-bottom: 15px;
+}
+div#regBox {
+    border-radius: 15px;
+    padding: 25px 25px 0 !important;
+    margin-top: 30px;
+    box-shadow: 0px 0px 7px 3px #efefef;
+}
+.btn.btn-primary {
+    background-color: #3B71C9;
+    border-color: #3B71C9;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    height: 45px;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 7px 2px rgb(59 113 201 / 30%);
+}
+.modal-dialog a.nav-link{
+    background-color: #E3EBF6 !important;
+    color: #3B71C9 !important;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.modal-dialog a.nav-link.active {
+    background-color: #3B71C9 !important;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 15px;
+}
+.modal-body p {
+    margin-bottom: 0;
+    color: #646464;
+}
+.inner-content.pt-3 {
+    font-family: monospace;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 25px;
+    color: #646464;
+    margin-bottom: 10px;
+}
+h4.modal-title {
+    font-weight: 600;
+    color: #646464;
+}
+p.modal-subtitle{
+    font-weight: 500;
+}
+button.close {
+    font-size: 35px;
+    font-weight: 300;
+}
