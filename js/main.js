@@ -1,6 +1,11 @@
 $(document).ready(function () {
+    
+    var payloadData = {};
 
     $('#city-dropdown').attr('disabled', 'disabled');
+    $('#msg').hide();
+    $('#err').hide();
+    $('#err1').hide();
 
     $('#address_line1').on('keyup', function () {
         if ($("#address_line1").val().length == 0) {
@@ -62,31 +67,31 @@ $(document).ready(function () {
         });
     });
 
-    $("#btnPost").click(function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "includes/post.php",
-            data: $(this).serialize(),
-        }).done(function (data) {
-            $("#address_line1").val("");
-            $("#address_line2").val("");
-            $("#state_id").val("");
-            $("#city_id").val("");
-            $("#zipcode").val("");
-            $("#msgReg").html(
-                "<p class='text-center alert alert-success'>" + data + "</p>"
-            );
-            $("#msgReg").slideDown(1400);
-            setTimeout(function () {
-                $("#msgReg").slideUp(900);
-            }, 900);
-        });
-    });
+    // $("#btnPost").click(function (e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "includes/post.php",
+    //         data: $(this).serialize(),
+    //     }).done(function (data) {
+    //         $("#address_line1").val("");
+    //         $("#address_line2").val("");
+    //         $("#state_id").val("");
+    //         $("#city_id").val("");
+    //         $("#zipcode").val("");
+    //         $("#msgReg").html(
+    //             "<p class='text-center alert alert-success'>" + data + "</p>"
+    //         );
+    //         $("#msgReg").slideDown(1400);
+    //         setTimeout(function () {
+    //             $("#msgReg").slideUp(900);
+    //         }, 900);
+    //     });
+    // });
 
 
 
-    $("#validate").click(async function (e) {
+    $("#validate").click(function (e) {
         e.preventDefault();
 
         $('#err').html('');
@@ -119,7 +124,9 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.address_line1[0] || data.address_line2[0]) {
                         $("#myModal").modal('show');
-                        storeData('#original');
+                        setTimeout(() => {
+                            payloadData = storeData(e.target.hash);
+                        }, 1000);
                         $("#address_line1_tab2").html(data.address_line1[0]);
                         $("#address_line2_tab2").html(data.address_line2[0]);
                         $("#state_dropdown_tab2").html(data.state[0]);
@@ -127,6 +134,7 @@ $(document).ready(function () {
                         $("#zipcode_tab2").html(data.zipcode[0]);
                     } else {
                         $('#err').html('Invalid Address');
+                        $('#err').show();
                     }
                 },
                 error: function (data) {
@@ -138,22 +146,23 @@ $(document).ready(function () {
     });
 
 
-    let payloadData = {};
-    $(".nav-link").click(async function (e) {
+    $(".nav-link").click(function (e) {
         payloadData = storeData(e.target.hash);
     });
 
-    $(".submit-btn").click(async function (e) {
+    $("#submit-btn").click(function (e) {
         $.ajax({
             type: "POST",
             url: "includes/post.php",
             dataType: "json",
             data: payloadData,
             success: function (data) {
-                console.log(data);
+                $('#msg').html('Address saved Successfully!');
+                $('#msg').show();
             },
             error: function (data) {
-                console.log(data);
+                $('#err1').html('Invalid Address');
+                $('#err1').show();
             },
         });
     });
@@ -170,7 +179,7 @@ function storeData(tab) {
             address_line2: $("#address_line2_tab").html(),
             state: $("#state_dropdown_tab").html(),
             city: $("#city_dropdown_tab").html(),
-            zipcode: $("#zipcode").val(),
+            zipcode: $("#zipcode_tab").html(),
         };
     } else {
         data = {
@@ -178,8 +187,9 @@ function storeData(tab) {
             address_line2: $("#address_line2_tab2").html(),
             state: $("#state_dropdown_tab2").html(),
             city: $("#city_dropdown_tab2").html(),
-            zipcode: $("#zipcode").val(),
+            zipcode: $("#zipcode_tab2").html(),
         };
     }
+    console.log(data);
     return data;
 }

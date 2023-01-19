@@ -49,7 +49,8 @@ ini_set('display_errors', 1);
 				</div>
 
 				<div class="text-center">
-					<h5 class="text-danger" id=err></h5>
+					<div class="alert alert-danger" id="err" role="alert">
+					</div>
 					<button type="button" id="validate" class="btn btn-primary">
 						Validate
 					</button>
@@ -106,6 +107,10 @@ ini_set('display_errors', 1);
 				</div>
 
 				<!-- Modal footer -->
+				<div class="alert alert-success" id="msg" role="alert">
+				</div>
+				<div class="alert alert-danger" id="err1" role="alert">
+				</div>
 				<div class="modal-footer">
 					<input type="button" id="submit-btn" value="Submit" class='btn btn-info'>
 				</div>
