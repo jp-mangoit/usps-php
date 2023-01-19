@@ -79,10 +79,6 @@ ini_set('display_errors', 1);
 							</div>
 						</div>
 					</div>
-					<!-- <div class="btn-group">
-						<button type="button" class="btn btn-primary">Apple</button>
-						<button type="button" class="btn btn-primary">Samsung</button>
-					</div> -->
 				</div>
 
 				<!-- Modal footer -->
