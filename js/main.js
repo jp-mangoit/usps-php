@@ -81,11 +81,11 @@ $(document).ready(function () {
             $('#err').html('All fields is required');
         } else {
 
-            $("#address_line1_tab").html($("#address_line1").val().trim());
-            $("#address_line2_tab").html($("#address_line2").val().trim());
-            $("#state_dropdown_tab").html($("#state-dropdown option:selected").data("state").trim());
-            $("#city_dropdown_tab").html($("#city-dropdown option:selected").data("city").trim());
-            $("#zipcode_tab").html($("#zipcode").val().trim());
+            $("#address_line1_tab").html($("#address_line1").val());
+            $("#address_line2_tab").html($("#address_line2").val());
+            $("#state_dropdown_tab").html($("#state-dropdown option:selected").data("state"));
+            $("#city_dropdown_tab").html($("#city-dropdown option:selected").data("city"));
+            $("#zipcode_tab").html($("#zipcode").val());
 
             $.ajax({
                 type: "POST",
@@ -104,11 +104,11 @@ $(document).ready(function () {
                         setTimeout(() => {
                             payloadData = storeData(e.target.hash);
                         }, 1000);
-                        $("#address_line1_tab2").html(data.address_line1[0]).trim();
-                        $("#address_line2_tab2").html(data.address_line2[0]).trim();
-                        $("#state_dropdown_tab2").html(data.state[0]).trim();
-                        $("#city_dropdown_tab2").html(data.city[0]).trim();
-                        $("#zipcode_tab2").html(data.zipcode[0]).trim();
+                        $("#address_line1_tab2").html(data.address_line1[0]);
+                        $("#address_line2_tab2").html(data.address_line2[0]);
+                        $("#state_dropdown_tab2").html(data.state[0]);
+                        $("#city_dropdown_tab2").html(data.city[0]);
+                        $("#zipcode_tab2").html(data.zipcode[0]);
                     } else {
                         $('#err').html('Invalid Address');
                         $('#err').show();
@@ -152,19 +152,19 @@ function storeData(tab) {
     currenttab = tab;
     if (currenttab == '#original') {
         data = {
-            address_line1: $("#address_line1_tab").html(),
-            address_line2: $("#address_line2_tab").html(),
-            state: $("#state-dropdown").val(),
-            city: $("#city-dropdown").val(),
-            zipcode: $("#zipcode_tab").html(),
+            address_line1: $("#address_line1_tab").html().trim(),
+            address_line2: $("#address_line2_tab").html().trim(),
+            state: $("#state-dropdown").val().trim(),
+            city: $("#city-dropdown").val().trim(),
+            zipcode: $("#zipcode_tab").html().trim(),
         };
     } else {
         data = {
-            address_line1: $("#address_line1_tab2").html(),
-            address_line2: $("#address_line2_tab2").html(),
-            state: $("#state-dropdown").val(),
-            city: $("#city-dropdown").val(),
-            zipcode: $("#zipcode_tab2").html(),
+            address_line1: $("#address_line1_tab2").html().trim(),
+            address_line2: $("#address_line2_tab2").html().trim(),
+            state: $("#state-dropdown").val().trim(),
+            city: $("#city-dropdown").val().trim(),
+            zipcode: $("#zipcode_tab2").html().trim(),
         };
     }
     return data;
