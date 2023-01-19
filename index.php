@@ -27,34 +27,39 @@ ini_set('display_errors', 1);
 			<form action="" id='addressForm' method="post">
 				<div class="form-group">
 					<input type="text" id="address_line1" name="address_line1" placeholder="Address Line 1" class='form-control' required>
+					<span class="text-danger" id=error_add1></span>
 				</div>
 				<div class="form-group">
 					<input type="text" id="address_line2" name="address_line2" placeholder="Address Line 2" class='form-control' required>
+					<span class="text-danger" id=error_add2></span>
 				</div>
 				<div class="form-group">
 					<select id="state-dropdown" name="state_id" class="form-control">
 					</select>
+					<span class="text-danger" id=error_state></span>
 				</div>
 				<div class="form-group">
 					<select id="city-dropdown" name="city_id" class="form-control">
 					</select>
+					<span class="text-danger" id=error_city></span>
 				</div>
 				<div class="form-group">
 					<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class='form-control' required>
+					<span class="text-danger" id=error_zip></span>
 				</div>
 
-				<div class="form-group text-center">
-					<button type="button" id="validate" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				<div class="text-center">
+					<h5 class="text-danger" id=err></h5>
+					<button type="button" id="validate" class="btn btn-primary">
 						Validate
 					</button>
 				</div>
-				<!-- <input type="button" id="btnPost" value="Submit" class='btn btn-info'> -->
 			</form>
 			<br>
 		</div>
 	</div>
 
-	<div class="modal" id="myModal">
+	<div class="modal" id="myModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 
@@ -66,7 +71,7 @@ ini_set('display_errors', 1);
 
 				<!-- Modal body -->
 				<div class="modal-body">
-				<p>Which address format. Do you want to save?</p>
+					<p>Which address format. Do you want to save?</p>
 
 					<div class="bs-example">
 						<ul class="nav nav-tabs">
@@ -102,7 +107,7 @@ ini_set('display_errors', 1);
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<input type="button" id="submit-btn" value="Submit" class='btn btn-info'>
 				</div>
 
 			</div>
@@ -111,9 +116,9 @@ ini_set('display_errors', 1);
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 
 </html>
