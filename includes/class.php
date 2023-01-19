@@ -2,11 +2,11 @@
 
 class address extends db
 {
-	public function insert($f, $l, $w, $c, $e)
+	public function insert($address_line1, $address_line2, $state_id, $city_id, $zipcode)
 	{
 		$query = "INSERT INTO address(address_line1,address_line2,state_id,city_id,zipcode) VALUES(?,?,?,?,?) ";
 		$stmt = $this->connect()->prepare($query);
-		if ($stmt->execute([$f, $l, $w, $c, $e])) {
+		if ($stmt->execute([$address_line1, $address_line2, $state_id, $city_id, $zipcode])) {
 			echo "Address saved Successfully!";
 		}
 	}
@@ -119,12 +119,9 @@ class address extends db
 		$doc_string = urlencode($doc_string);
 
 		$url = "https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=" . $doc_string;
-		// echo $url . "\n\n";
 
 		// perform the get
 		$response = file_get_contents($url);
-
-		// echo $response;
 
 		$xml = simplexml_load_string($response) or die("Error: Cannot create object");
 	
