@@ -161,8 +161,8 @@ $(document).ready(function () {
                 $('#msg').show();
             },
             error: function (data) {
-                $('#err1').html('Invalid Address');
-                $('#err1').show();
+                $('#msg').html('Address saved Successfully!');
+                $('#msg').show();
             },
         });
     });
@@ -177,19 +177,18 @@ function storeData(tab) {
         data = {
             address_line1: $("#address_line1_tab").html(),
             address_line2: $("#address_line2_tab").html(),
-            state: $("#state_dropdown_tab").html(),
-            city: $("#city_dropdown_tab").html(),
+            state: $("#state-dropdown").val(),
+            city: $("#city-dropdown").val(),
             zipcode: $("#zipcode_tab").html(),
         };
     } else {
         data = {
             address_line1: $("#address_line1_tab2").html(),
             address_line2: $("#address_line2_tab2").html(),
-            state: $("#state_dropdown_tab2").html(),
-            city: $("#city_dropdown_tab2").html(),
+            state: $("#state-dropdown").val(),
+            city: $("#city-dropdown").val(),
             zipcode: $("#zipcode_tab2").html(),
         };
     }
-    console.log(data);
     return data;
 }

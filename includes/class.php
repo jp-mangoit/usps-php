@@ -1,4 +1,6 @@
 <?php require_once "db.php";
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
 class address extends db
 {
 	public function insert($f, $l, $w, $c, $e)
