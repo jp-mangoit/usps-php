@@ -35,16 +35,16 @@ $(document).ready(function () {
         email: $("#upd_email").val(),
       },
     }).done(function (data) {
-      $("#upd_first").val("");
-      $("#upd_last").val("");
-      $("#upd_work").val("");
-      $("#upd_city").val("");
-      $("#upd_email").val("");
-      $("#table").load("includes/load.php");
-      $("#msgEdit").html(
-        "<p class='text-center alert alert-success'>" + data + "</p>"
-      );
-      $("#msgEdit").slideDown(1000);
+		$("#upd_first").val("");
+		$("#upd_last").val("");
+		$("#upd_work").val("");
+		$("#upd_city").val("");
+		$("#upd_email").val("");
+		$("#table").load("includes/load.php");
+		$("#msgEdit").html(
+			"<p class='text-center alert alert-success'>" + data + "</p>"
+		);
+		$("#msgEdit").slideDown(1000);
     });
   });
 });
