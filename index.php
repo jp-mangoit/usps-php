@@ -42,9 +42,12 @@ ini_set('display_errors', 1);
 				<div class="form-group">
 					<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class='form-control' required>
 				</div>
-				<button id="validate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					Validate
-				</button>
+
+				<div class="form-group text-center">
+					<button type="button" id="validate" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+						Validate
+					</button>
+				</div>
 				<!-- <input type="button" id="btnPost" value="Submit" class='btn btn-info'> -->
 			</form>
 			<br>
@@ -63,26 +66,38 @@ ini_set('display_errors', 1);
 
 				<!-- Modal body -->
 				<div class="modal-body">
+				<p>Which address format. Do you want to save?</p>
+
 					<div class="bs-example">
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
 								<a href="#original" class="nav-link active" data-toggle="tab">ORIGINAL</a>
 							</li>
-							<li class="nav-item" id="standard_usps">
-								<a href="#standard" class="nav-link" data-toggle="tab">Standardized (USPS)</a>
+							<li class="nav-item">
+								<a href="#standardize" class="nav-link" data-toggle="tab">STANDARDIZE(USPS)</a>
 							</li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="original">
+								<div class="inner-content pt-3">
+									<p>Address Line 1 : <span id="address_line1_tab"></span> </p>
+									<p>Address Line 2 : <span id="address_line2_tab"></span> </p>
+									<p>state : <span id="state_dropdown_tab"></span> </p>
+									<p>city : <span id="city_dropdown_tab"></span> </p>
+									<p>Zip Code : <span id="zipcode_tab"></span> </p>
+								</div>
 							</div>
-							<div class="tab-pane fade" id="standard">
+							<div class="tab-pane fade" id="standardize">
+								<div class="inner-content pt-3">
+									<p>Address Line 1 : <span id="address_line1_tab2"></span> </p>
+									<p>Address Line 2 : <span id="address_line2_tab2"></span> </p>
+									<p>state : <span id="state_dropdown_tab2"></span> </p>
+									<p>city : <span id="city_dropdown_tab2"></span> </p>
+									<p>Zip Code : <span id="zipcode_tab2"></span> </p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<!-- <div class="btn-group">
-						<button type="button" class="btn btn-primary">Apple</button>
-						<button type="button" class="btn btn-primary">Samsung</button>
-					</div> -->
 				</div>
 
 				<!-- Modal footer -->
