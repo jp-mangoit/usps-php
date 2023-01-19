@@ -2,9 +2,10 @@ $(document).ready(function () {
   $("#state-dropdown").load("includes/load.php");
 
   $("#state-dropdown").on("change", function () {
-    var state_id = this.value;
+    var state_id = $("#state-dropdown").val();
+	console.log(state_id);
     $.ajax({
-      url: "cities-by-state.php",
+      url: "includes/cities-by-state.php",
       type: "POST",
       data: {
         state_id: state_id,
