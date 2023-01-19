@@ -58,7 +58,7 @@ class address extends db
 			$id = $row['id'];
 			$name = $row['name'];
 
-			$out .= "<option value=".$id.">$name</option>";
+			$out .= "<option data-state=" . $name . " value=" . $id . ">$name</option>";
 		}
 
 		if ($stmt->rowCount() == 0) {
@@ -68,33 +68,78 @@ class address extends db
 	}
 
 	public function getCitiesByState($state_id)
-	{	
+	{
 
-		try{
+		try {
 
 			$query = "SELECT * FROM cities WHERE state_id = $state_id";
 			$stmt = $this->connect()->prepare($query);
 			$stmt->execute();
-	
+
 			$out = "";
 			$out .= "<option value=''>Select cities</option>";
-			
+
 			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$id = $row['id'];
 				$name = $row['name'];
-	
-				$out .= "<option value=".$id.">$name</option>";
+
+				$out .= "<option data-city=" . $name . " value=" . $id . ">$name</option>";
 			}
-	
+
 			if ($stmt->rowCount() == 0) {
 				$out = "";
 			}
 
 			return $out;
-
-		}catch(\Exception $e){
+		} catch (\Exception $e) {
 			return $e->getMessage();
 		}
+	}
+
+	public function validateAddress($address_line1, $address_line2, $city, $state, $zipcode)
+	{
+		$request_doc_template = <<<EOT
+		<?xml version="1.0"?>
+		<AddressValidateRequest USERID="621BURTW1013">
+			<Revision>1</Revision>
+			<Address ID="0">
+				<Address1>$address_line1</Address1>
+				<Address2>$address_line2</Address2>
+				<City>$city</City>
+				<State>$state</State>
+				<Zip5>$zipcode</Zip5>
+				<Zip4/>
+			</Address>
+		</AddressValidateRequest>
+		EOT;
+
+		// prepare xml doc for query string
+		$doc_string = preg_replace('/[\t\n]/', '', $request_doc_template);
+		$doc_string = urlencode($doc_string);
+
+		$url = "https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=" . $doc_string;
+		// echo $url . "\n\n";
+
+		// perform the get
+		$response = file_get_contents($url);
+
+		// echo $response;
+
+		$xml = simplexml_load_string($response) or die("Error: Cannot create object");
+	
+		return [
+			'address_line1' => $xml->Address->Address1 ?? "",
+			'address_line2' => $xml->Address->Address2 ?? "",
+			'state' => $xml->Address->City ?? "",
+			'city' => $xml->Address->State ?? "",
+			'zipcode' => $xml->Address->Zip5 ?? "",
+		];
+
+		// echo "Address1: " . $xml->Address->Address1 . "\n";
+		// echo "Address2: " . $xml->Address->Address2 . "\n";
+		// echo "City: " . $xml->Address->City . "\n";
+		// echo "State: " . $xml->Address->State . "\n";
+		// echo "Zip5: " . $xml->Address->Zip5 . "\n";
 	}
 
 	// // update data

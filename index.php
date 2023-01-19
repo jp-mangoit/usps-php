@@ -42,8 +42,8 @@ ini_set('display_errors', 1);
 				<div class="form-group">
 					<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class='form-control' required>
 				</div>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					Open modal
+				<button id="validate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					Validate
 				</button>
 				<!-- <input type="button" id="btnPost" value="Submit" class='btn btn-info'> -->
 			</form>
@@ -66,27 +66,16 @@ ini_set('display_errors', 1);
 					<div class="bs-example">
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
-								<a href="#home" class="nav-link active" data-toggle="tab">Home</a>
+								<a href="#original" class="nav-link active" data-toggle="tab">ORIGINAL</a>
 							</li>
-							<li class="nav-item">
-								<a href="#profile" class="nav-link" data-toggle="tab">Profile</a>
-							</li>
-							<li class="nav-item">
-								<a href="#messages" class="nav-link" data-toggle="tab">Messages</a>
+							<li class="nav-item" id="standard_usps">
+								<a href="#standard" class="nav-link" data-toggle="tab">Standardized (USPS)</a>
 							</li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane fade show active" id="home">
-								<h4 class="mt-2">Home tab content</h4>
-								<p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+							<div class="tab-pane fade show active" id="original">
 							</div>
-							<div class="tab-pane fade" id="profile">
-								<h4 class="mt-2">Profile tab content</h4>
-								<p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
-							</div>
-							<div class="tab-pane fade" id="messages">
-								<h4 class="mt-2">Messages tab content</h4>
-								<p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.</p>
+							<div class="tab-pane fade" id="standard">
 							</div>
 						</div>
 					</div>
