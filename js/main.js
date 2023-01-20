@@ -31,8 +31,8 @@ $(document).ready(function () {
             $('#city-dropdown').attr('disabled', false);
         }
     })
-    $('#city-dropdown').on('click', function () {
-        if ($("#city-dropdown").val().length == 0) {
+    $('#city').on('click', function () {
+        if ($("#city").val().length == 0) {
             $("#error_city").html('This field is required');
         } else {
             $("#error_city").html('');
@@ -59,7 +59,7 @@ $(document).ready(function () {
             },
             cache: false,
             success: function (result) {
-                $("#city-dropdown").html(result);
+                $("#city").html(result);
             },
             error: function (err) {
                 console.log(err);
@@ -76,7 +76,7 @@ $(document).ready(function () {
         if ($("#address_line1").val().length == 0 ||
             $("#address_line2").val().length == 0 ||
             $("#state-dropdown").val().length == 0 ||
-            $("#city-dropdown").val().length == 0 ||
+            $("#city").val().length == 0 ||
             $("#zipcode").val().length == 0) {
             $('#err').html('All fields is required');
         } else {
@@ -84,7 +84,7 @@ $(document).ready(function () {
             $("#address_line1_tab").html($("#address_line1").val());
             $("#address_line2_tab").html($("#address_line2").val());
             $("#state_dropdown_tab").html($("#state-dropdown option:selected").data("state"));
-            $("#city_dropdown_tab").html($("#city-dropdown option:selected").data("city"));
+            $("#city_tab").html($("#city").val());
             $("#zipcode_tab").html($("#zipcode").val());
 
             $.ajax({
@@ -95,7 +95,7 @@ $(document).ready(function () {
                     address_line1: $("#address_line1").val(),
                     address_line2: $("#address_line2").val(),
                     state: $("#state-dropdown option:selected").data("state"),
-                    city: $("#city-dropdown option:selected").data("city"),
+                    city: $("#city").val(),
                     zipcode: $("#zipcode").val(),
                 },
                 success: function (data) {
@@ -107,7 +107,7 @@ $(document).ready(function () {
                         $("#address_line1_tab2").html(data.address_line1[0]);
                         $("#address_line2_tab2").html(data.address_line2[0]);
                         $("#state_dropdown_tab2").html(data.state[0]);
-                        $("#city_dropdown_tab2").html(data.city[0]);
+                        $("#city_tab2").html(data.city[0]);
                         $("#zipcode_tab2").html(data.zipcode[0]);
                     } else {
                         $('#err').html('Invalid Address');
@@ -155,7 +155,7 @@ function storeData(tab) {
             address_line1: $("#address_line1_tab").html().trim(),
             address_line2: $("#address_line2_tab").html().trim(),
             state: $("#state-dropdown").val().trim(),
-            city: $("#city-dropdown").val().trim(),
+            city: $("#city").val().trim(),
             zipcode: $("#zipcode_tab").html().trim(),
         };
     } else {
@@ -163,7 +163,7 @@ function storeData(tab) {
             address_line1: $("#address_line1_tab2").html().trim(),
             address_line2: $("#address_line2_tab2").html().trim(),
             state: $("#state-dropdown").val().trim(),
-            city: $("#city-dropdown").val().trim(),
+            city: $("#city").val().trim(),
             zipcode: $("#zipcode_tab2").html().trim(),
         };
     }

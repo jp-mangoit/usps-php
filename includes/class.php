@@ -2,11 +2,11 @@
 
 class address extends db
 {
-	public function insert($address_line1, $address_line2, $state_id, $city_id, $zipcode)
+	public function insert($address_line1, $address_line2, $state_id, $city, $zipcode)
 	{
-		$query = "INSERT INTO address(address_line1,address_line2,state_id,city_id,zipcode) VALUES(?,?,?,?,?) ";
+		$query = "INSERT INTO address(address_line1,address_line2,state_id,city,zipcode) VALUES(?,?,?,?,?) ";
 		$stmt = $this->connect()->prepare($query);
-		if ($stmt->execute([$address_line1, $address_line2, $state_id, $city_id, $zipcode])) {
+		if ($stmt->execute([$address_line1, $address_line2, $state_id, $city, $zipcode])) {
 			echo "Address saved Successfully!";
 		}
 	}

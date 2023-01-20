@@ -25,24 +25,24 @@
 					<span class="text-danger" id=error_add1></span>
 				</div>
 				<div class="form-group">
-				<label for="exampleInputEmail1">Address Line 2</label>
+					<label for="exampleInputEmail1">Address Line 2</label>
 					<input type="text" id="address_line2" name="address_line2" placeholder="Address Line 2" class='form-control' required>
 					<span class="text-danger" id=error_add2></span>
 				</div>
 				<div class="form-group">
-				<label for="exampleInputEmail1">City</label>
+					<label for="exampleInputEmail1">City</label>
+					<input type="text" id="city" name="city" placeholder="City" class='form-control' required>	
+					<span class="text-danger" id=error_city></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">State</label>
 					<select id="state-dropdown" name="state_id" class="form-control">
 					</select>
 					<span class="text-danger" id=error_state></span>
 				</div>
+
 				<div class="form-group">
-				<label for="exampleInputEmail1">State</label>
-					<select id="city-dropdown" name="city_id" class="form-control">
-					</select>
-					<span class="text-danger" id=error_city></span>
-				</div>
-				<div class="form-group">
-				<label for="exampleInputEmail1">Zipcode</label>
+					<label for="exampleInputEmail1">Zipcode</label>
 					<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class='form-control' required>
 					<span class="text-danger" id=error_zip></span>
 				</div>
@@ -88,7 +88,7 @@
 									<p>Address Line 1 : <span id="address_line1_tab"></span> </p>
 									<p>Address Line 2 : <span id="address_line2_tab"></span> </p>
 									<p>state : <span id="state_dropdown_tab"></span> </p>
-									<p>city : <span id="city_dropdown_tab"></span> </p>
+									<p>city : <span id="city_tab"></span> </p>
 									<p>Zip Code : <span id="zipcode_tab"></span> </p>
 								</div>
 							</div>
@@ -97,7 +97,7 @@
 									<p>Address Line 1 : <span id="address_line1_tab2"></span> </p>
 									<p>Address Line 2 : <span id="address_line2_tab2"></span> </p>
 									<p>state : <span id="state_dropdown_tab2"></span> </p>
-									<p>city : <span id="city_dropdown_tab2"></span> </p>
+									<p>city : <span id="city_tab2"></span> </p>
 									<p>Zip Code : <span id="zipcode_tab2"></span> </p>
 								</div>
 							</div>
