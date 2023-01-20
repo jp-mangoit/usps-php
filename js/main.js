@@ -14,13 +14,6 @@ $(document).ready(function () {
             $("#error_add1").html('');
         }
     });
-    $('#address_line2').on('keyup', function () {
-        if ($("#address_line2").val().length == 0) {
-            $("#error_add2").html('This field is required');
-        } else {
-            $("#error_add2").html('');
-        }
-    });
     $('#state-dropdown').on('click', function () {
         if ($("#state-dropdown").val().length == 0) {
             $("#error_state").html('This field is required');
@@ -74,7 +67,6 @@ $(document).ready(function () {
         $('#err').html('');
 
         if ($("#address_line1").val().length == 0 ||
-            $("#address_line2").val().length == 0 ||
             $("#state-dropdown").val().length == 0 ||
             $("#city").val().length == 0 ||
             $("#zipcode").val().length == 0) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 19, 2023 at 08:57 AM
+-- Generation Time: Jan 20, 2023 at 10:24 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -30,11 +30,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `address` (
   `id` int(11) NOT NULL,
   `address_line1` varchar(255) NOT NULL,
-  `address_line2` varchar(255) NOT NULL,
-  `city_id` int(11) NOT NULL,
+  `address_line2` varchar(255) DEFAULT NULL,
   `state_id` int(11) NOT NULL,
-  `zipcode` int(11) NOT NULL
+  `zipcode` int(11) NOT NULL,
+  `city` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`id`, `address_line1`, `address_line2`, `state_id`, `zipcode`, `city`) VALUES
+(15, '912 PARK AVE', '912 PARK AVE', 3920, 99901, NULL),
+(16, '4821 Ridge Top Cir', '4821 Ridge Top Cir', 3920, 99508, NULL),
+(17, '4821 RIDGE TOP CIR', '4821 RIDGE TOP CIR', 3920, 99508, NULL),
+(18, '1527 Pond Reef Rd', '1527 Pond Reef Rd', 3920, 99901, NULL),
+(19, '1536 STELLAR DR', '1536 STELLAR DR', 3920, 99611, 'Kenai'),
+(23, '257 FIREWEED LN', '257 E FIREWEED LN', 3920, 99901, 'Ketchikan'),
+(25, '4821 RIDGE TOP CIR', '4821 RIDGE TOP CIR', 3920, 99508, 'Anchorage');
 
 -- --------------------------------------------------------
 
@@ -52429,7 +52442,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `cities`
