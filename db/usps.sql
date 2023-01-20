@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2023 at 10:24 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Jan 20, 2023 at 11:06 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,23 +31,19 @@ CREATE TABLE `address` (
   `id` int(11) NOT NULL,
   `address_line1` varchar(255) NOT NULL,
   `address_line2` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
   `state_id` int(11) NOT NULL,
-  `zipcode` int(11) NOT NULL,
-  `city` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `zipcode` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `address`
 --
 
-INSERT INTO `address` (`id`, `address_line1`, `address_line2`, `state_id`, `zipcode`, `city`) VALUES
-(15, '912 PARK AVE', '912 PARK AVE', 3920, 99901, NULL),
-(16, '4821 Ridge Top Cir', '4821 Ridge Top Cir', 3920, 99508, NULL),
-(17, '4821 RIDGE TOP CIR', '4821 RIDGE TOP CIR', 3920, 99508, NULL),
-(18, '1527 Pond Reef Rd', '1527 Pond Reef Rd', 3920, 99901, NULL),
-(19, '1536 STELLAR DR', '1536 STELLAR DR', 3920, 99611, 'Kenai'),
-(23, '257 FIREWEED LN', '257 E FIREWEED LN', 3920, 99901, 'Ketchikan'),
-(25, '4821 RIDGE TOP CIR', '4821 RIDGE TOP CIR', 3920, 99508, 'Anchorage');
+INSERT INTO `address` (`id`, `address_line1`, `address_line2`, `city`, `state_id`, `zipcode`) VALUES
+(19, '1536 STELLAR DR', '1536 STELLAR DR', 'Kenai', 3920, 99611),
+(23, '257 FIREWEED LN', '257 E FIREWEED LN', 'Ketchikan', 3920, 99901),
+(25, '4821 RIDGE TOP CIR', '4821 RIDGE TOP CIR', 'Anchorage', 3920, 99508);
 
 -- --------------------------------------------------------
 
@@ -59,7 +55,7 @@ CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `state_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cities`
@@ -48042,7 +48038,7 @@ CREATE TABLE `countries` (
   `shortname` varchar(3) NOT NULL,
   `name` varchar(150) NOT NULL,
   `phonecode` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `countries`
@@ -48306,7 +48302,7 @@ CREATE TABLE `states` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `country_id` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `states`
@@ -52442,7 +52438,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `cities`
